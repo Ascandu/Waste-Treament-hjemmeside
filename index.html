@@ -1,0 +1,54 @@
+<!doctype html>
+<html>
+<head>
+	<!-- Der linkes til css filen som styler elementer på hjemmesiden -->
+	<link href="stylesheet.css" rel="stylesheet" type="text/css">
+<meta charset="utf-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Prototype Waste Treatment</title>
+</head>
+	<!-- Vi navngiver vores body element med en class som tilpasses alt efter hvilken side/underside vi er på i hjemmesiden. Dette gør vi således, at vi kan lave forskellige baggrunde til de forskellige sektioner skulle vi ønske det. -->
+<body class="index">
+		<!-- Vi starter med at kalde header id'et for "navbar" det gør vi fordi, vores header skal indeholde vores navigationsmenu. Denne header kommer til at indeholde alt det HTML relaterede kode, som skal bruges til at lave vores navbar, dette er vores parent element. Tænk på det som den ramme der er rundt om alle elementerne indeni boksen. -->
+<header id="navbar">
+		<!-- Inde i det element placerer vi et <nav> element. Dette definerer, at der kommer til at være en række navigations elementer. (links knapper og den slags). Det primære mål med container er at tilpasse den indre boks størrelse (logo, hjemmeside navn og underside links) således at de tilpasser sig i forhold til venstre og højre margin. Dette bliver en "flex container" som kommer til at have tre children .home-link (anchor, som er rundt om hjemmeside logoet og navnet, til at linke til frontsiden), #navbar-toggle (hamburger menu knappen i højre side, som skifter til mobile view under 700px, og folder sig ud når vi kommer over 700px) og #navbar-menu (Dette er menuen med links til undersider, som er lagt i en wrapper, den som popper ud på skærmen når vi er under 700px og der er trykket på hamburger menuen.) -->
+<nav class="navbar-container container">
+		<!-- link til sektioner på hjemmesiden i det her tilfælde frontsiden aka index.html, og den får en class ved navn .home-link i CSS -->
+<a href="/" class="home-link">
+		<!-- En div med billedet af vores navbars firma logo. src hvor billedet ligger. Med alternativt navn. Width og height er sat til ="" således at de responsivt tilpasser sig til navbaren og så skrives firmaets navn, som det tekst, der står til højre for logoet. -->
+<div class="navbar-logo"></div>
+	<!-- skifter firma navnets farve til hexkode #35A754. -->
+			<span style="color:#35A754;">Waste Treatment</span>
+</a>
+	<!-- Der laves en hamburger menu knap, som kan åbne og lukke, og som kommer til at skjule sig igennem javascript når skærmstørrelsen er over 700px 
+Vi starter med at definere, at det er en knap den skal opføre sig som.
+Knappen får id'et "navbar-toggle".
+aria-controls definerer, at det element, som det er tilknyttet påvirkes af dette element. Altså navbar-menu bliver påvirket af vores button.
+aria-expanded bruges til at styre om en control er udvidet eller kollapset og om "child elementer bliver vist eller skjult.
+aria-expanded bliver sat til false, hvilket indikerer at popout menuen er lukket som standard. Den skulle jo helst ikke åbne, som siden loader. -->
+<button
+		type="button"
+		id="navbar-toggle"
+		aria-controls="navbar-menu"
+		aria-label="Toggle menu"
+			aria-expanded="false"
+>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+<span class="icon-bar"></span>
+</button>
+<div id="navbar-menu" aria-labelledby="navbar-toggle">
+	<!-- Her laves en ul class, der navngives "navbar-links" disse links bliver sat i en liste form <li> og bliver givet klassen "navbar-item" disse liste punkter bliver givet en anchor class ved navn "navbar-link" og disse er her for at linke til de korrekte undersider, som passer til liste punktets navn. Aka teksten Fejlsorting linker til /Fejlsortering.html osv.-->
+<ul class="navbar-links">
+	<li class="navbar-item"><a class="navbar-link" href="">Fejlsortering</a></li>
+	<li class="navbar-item"><a class="navbar-link" href="">Firma</a></li>
+	<li class="navbar-item"><a class="navbar-link" href="">Partnere</a></li>
+	<li class="navbar-item"><a class="navbar-link" href="">Kontakt</a></li>	
+</ul>		
+</div>
+</nav>
+</header>
+	<!-- Der linkes til javascript filen -->
+<script src="java.js"></script>	
+</body>
+</html>

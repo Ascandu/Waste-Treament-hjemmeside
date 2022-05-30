@@ -1,0 +1,259 @@
+@charset "utf-8";
+/* CSS Document */
+
+/* # er en id selector, som bruges til at specificere et specifikt element med et unikt id.
+. derimod bruges som en class selector som påvirker op til flere elementer, som har en specifik class.
+
+/*Bruges til at lave indstillinger for de forskellige undersiders baggrund, i det her tilfælde bare baggrundsfarven via en hexkode*/
+body.index {
+	background-color:#83ADB8;
+}
+
+/* En CSS underklasse. Stort set det samme som at skrive html. hsl står for hue (nuance), saturation (mætning) og lightness (lethed), hvis man tilføjer en fjerde ville det være alpha også kendt som opacity (gennemsigtighed).
+-- repræsenterer unikke egenskaber, som indeholder en værdi, som kan anvendes i andre erklæringer. Såsom javascripts var() funktion. Det anvendes senere i vores javascript. 
+Variablerne bruges primært bare til at undgå copy paste af farver i CSS filen*/
+:root {
+	--navbar-bg-color: hsl(0, 0%, 90%);
+	--navbar-text-color: hsl(0, 0%, 15%);
+	--navbar-text-color-focus: white;
+	--navbar-bg-contrast: hsl(0, 0%, 25%);
+}
+
+/* Her nustilles padding og margin med box-sizing: border-box hvilket sikre at bredde og højde tager border og padding i betragtning når det tilpasser sig */
+* {
+	box-sizing: border-box;
+	margin: 0;
+	padding: 0;
+}
+
+/*Body elementet tilpasser sig 100% af den tilgængelig viewheight i browseren. Font-family kan tilpasses til hvad der passer. Line-height bliver brugt til sætte højden på en line box. Det bruges til at tilpasse afstanden imellem tekst i linjer af tekst, med andre ord det laver mellemrum */
+body {
+	height: 100vh;
+	font-family: Arial, Helvetica, sans-serif;
+	line-height: 1.6;
+}
+
+/* Bruges til at horisontalt placere et element i midten af skærmen, så længe der bruges en class der kaldes container på et element. (Brug det kun til ting som skal centreres.) Det blev tidligere brugt på <nav class="navbar-container container">
+Rem står for root em og tilpasser fontsizes størrelse i forhold til root elementet.
+Margin har en top afstand på 0 og tilpasser automatisk højre og venstre side */
+.container {
+	max-width: 1000px;
+	padding-left: 1.4rem;
+	padding-right: 1.4rem;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/* Her begynder vi at style hele navbar elementet (det som fylder 100% af skærmen bredden.)
+vi sætter højden til 64 pixels.
+Positionen er låst fast fordi den skal blive på skærmen på et bestemt sted, og skal følge med som der scrolles.
+Baggrundsfarven er den samme som nævnt oppe i :root (ingen copy paste) 
+Der defineres at den starter allerede fra nul pixels i venstre side således ingen elementer skubber den. Den samme regel sættes for højre side. (Så den holder 100% skærmstørrelse)
+Box-shadow giver lidt sig selv den laver en skygge under elementet.
+rgba står for red, green, blue og alpha (opacity/ gennemsigtighed.)
+*/
+
+#navbar {
+	--navbar-height: 64px;
+	position: fixed;
+	height: var(--navbar-height);
+	background-color: var(--navbar-bg-color);
+	left: 0;
+	right: 0;
+	box-shadow: 0 2px 4px rgba(0, 0, 0, 0.15);
+	z-index: 10;
+}
+/* Dette er det indvendige navbar element forestil dig en ramme fra logo til den sidste knap kontakt. 
+Flex får elementerne i rammen til at ligge på samme linje.
+Vi bruger justify-content: space-between til at lave afstand imellem home link sektionen (altså logo og firma navn) og i den modsatte ende er vores nav-links  og vores hamburger button 
+Højden er 100% af hvad der er tilgængeligt ifølge navbaren størrelse
+Align tilpasser bare elementerne, således de er centreret i midten af containeren de er indeni*/
+.navbar-container {
+	display: flex;
+	justify-content: space-between;
+	height: 100%;
+	align-items: center;
+}
+
+/*Her styler vi anchor elementerne (de ting som linker til andre ting på siden aka undersiderne såsom fejlsortering i navbaren) 
+em betyder at element er relativt i forhold til x-højden af den nuværende font dvs den horisontale akse og her bliver det sat til at margin er 0.4em så stor af den nuværende størrelse af fontens størrelse aka den bliver mindre end den egentlige font størrelse.
+Fylder 100% af bredden der er tilgængelig*/
+.navbar-item {
+	margin: 0.4em;
+	width: 100%;
+}
+
+/*Her sættes der regler for både homelink classen og navbar-link classen. 
+Som med de andre farve variabler så hentes disse fra tidligere i dokumentet hvor de er defineret (:root)
+Text-decoration: none; bruges til at fjerne understreget tekst på de navbar underside links der er, således bare teksten er tilbage.
+Flex til at sætte dem på samme linje (ville se dumt ud hvis de var listet under hinanden i en navbar)
+font-weight bruges til at gøre teksten tykkere (mere bold) således de fremtræder mere markant.
+align-items: center; placeres i midten af containeren.
+*/
+.home-link,
+.navbar-link {
+	color: var(--navbar-text-color);
+	text-decoration: none;
+	display: flex;
+	font-weight: 900;
+	align-items: center;
+}
+
+/* home-link sektion ovre i html (logo og firma navn sektion, når der er i fokus altså man bruger mouse hover så skifter den til variable farven som blev defineret oppe i :root i dette tilfælde hvid) */
+.home-link:is(:focus, :hover) {
+	color: var(--navbar-text-color-focus);
+}
+
+/* Indstillinger til navbar links dvs. underside knapperne. Der laves en lille boks med rundede hjørner (border-radius) rundt om knapperne. */
+.navbar-link {
+	justify-content: center;
+	width: 100%;
+	padding: 0.4em 0.8em;
+	border-radius: 5px;
+}
+
+/*Når der holdes en muse markør over knap elementet (underside links) så skifter teksten til at være farven fra var(--navbar-text-color-focus); fra :root elementet.
+Rammen rundt om knappen får hexkode farven #35A754 */ 
+.navbar-link:is(:focus, :hover) {
+	color: var(--navbar-text-color-focus);
+	background-color: #35A754; 
+}
+
+/* Midlertidig indikator til at vise hvor firma logoet bliver placeret dette kan fjernes hvis det ønskes senere. Tegner bare en lille cirkel med en højde og bredde på 30px. */
+.navbar-logo {
+	background-color: black;
+	border-radius: 50%;
+	width: 30px;
+	height: 30px;
+	margin-right: 0.5em;
+}
+
+/* Her styles vores knap 
+Musemarkøren laves om til en pointer
+Knappen defineres til ikke at have en kant (det har buttons, som standard.)
+Den får en gennemsigig baggrundsfarve
+højde og bredde kommer til at fylde 40px;
+display bliver flex så knappen er i samme linje som andre elementer i samme container og bliver sat til at være i centrum.
+flex-direction bliver dog sat til at være en column og det er fordi vores hamburger menu knap får tre streger, som skal følge hinanden.*/
+#navbar-toggle {
+	cursor: pointer;
+	border: none;
+	background-color: transparent;
+	width: 40px;
+	height: 40px;
+	display: flex;
+	align-items: center;
+	justify-content: center;
+	flex-direction: column;
+}
+
+/* Her er reglerne for hvordan vores hamburger menu streger ser ud.
+Display block viser et element som et block element, hvilket gør at når elementet starter på en ny linje så tager det hele bredden som er til rådighed. 
+stregen sættes til at være 25 pixels bred, med en højde på 4 pixels og en margin på 2px (afstand imellem stregerne)*/
+.icon-bar {
+	display: block;
+	width: 25px;
+	height: 4px;
+	margin: 2px;
+	background-color: var(--navbar-text-color);
+}
+
+/* får hamburger menuen til at lyse op i den farve, som variablen er sat til at være. */
+#navbar-toggle:is(:focus, :hover) .iconbar {
+	background-color: var(--navbar-text-color-focus);
+}
+
+/* Her bruges child elementerne af navbar toggle. Specifikt navbar-toggle og aria-expanded tilstanden. icon-bar er bare de tre stregers class navn.
+Hvad koden essentielt gør er at når dropdown menuen åbnes via hamburger ikonet så ændrer hamburger ikonet sig til et kryds. Dette gøres når menuen åbner sig og aria-expanded ændrer sig fra en false til en true tilstand. (fra lukket til åben.) Det vi gør er at når true tilstanden bliver aktiv så roterer vi de tre streget fra tidligere således at øverste streg roterer 45 grader, den miderste får en opacity på nul (ikke længere synlig) og den sidste streg fra hamburger menuen drejer 45 grader mod uret. (Således at de to streger nu former et kryds når menuen er åben.) */
+
+/*Vi starter med at centrere begge streger i midten (der hvor den tidligere midter streg var placeret.) */
+#navbar-toggle[aria-expanded='true'] .icon-bar:is(:first-child, :last-child) {
+	position:absolute;
+	margin: 0;
+	width: 30px;
+}
+/* Første streg drejer 45 grader med uret når menuen åbnes. */
+#navbar-toggle[aria-expanded='true'] .icon-bar:first-child {
+	transform: rotate(45deg);
+}
+/* Miderste streg bliver skjult */
+#navbar-toggle[aria-expanded='true'] .icon-bar:nth-child(2) {
+	opacity: 0;
+}
+/* Sidste streg drejer 45 grader mod uret. */
+#navbar-toggle[aria-expanded='true'] .icon-bar:last-child {
+	transform:rotate(-45deg);
+}
+
+/* navbar popout menuen styles, den får en fast position som er samme afstand til navbaren som højden på selve navbaren igennem var(--navbar-height) */
+#navbar-menu {
+	position:fixed;
+	top: var(--navbar-height);
+	bottom: 0;
+	opacity: 0;
+	visibility: hidden;
+	left: 0;
+	right: 0;
+}
+
+/* Når menuen er udvidet så får hjemmesiden et gråligt overlay, men kun når den er fremme. */
+#navbar-toggle[aria-expanded='true'] + #navbar-menu {
+	background-color: rgba(0, 0, 0, 0.4);
+	opacity: 1;
+	visibility: visible;
+}
+
+/* Started med at fjerne stylingen på liste punkterne altså bullet points. De får en fast position med absolute.
+Samme farve, som var(--navbar-bg-color) oppe i root.
+Display sættes til flex som normalt dikterer at de bliver listet efter hinanden i samme linje, men her bruger vi column for at få tekst links til at stå efter hinanden på hver sin linje.
+De centreres i midten af containeren.
+Margin sørger for at menuen er skåret af fra resten af navigationsbaren.
+En lille skygge sættes på elementet.
+rgba er red, green, blue og alpha. */
+.navbar-links {
+	list-style: none;
+	position: absolute;
+	background-color: var(--navbar-bg-color);
+	display:flex;
+	flex-direction: column;
+	align-items: center;
+	left: 0;
+	right: 0;
+	margin: 1.4rem;
+	box-shadow: 0 0 20px rgba(0, 0, 0, 0.3);
+}
+
+/* Der sættes en padding imellem elementerne i boksen når hamburger menuen er åben */
+#navbar-toggle[aria-expanded='true'] + #navbar-menu .navbarlinks {
+	padding: 1em;
+}
+
+/* Vi ønsker ikke at hamburger menuen skal være til stede når vi ikke længere er i mobil tilstand. Så den skjules med display: none;*/
+@media screen and (min-width: 700px) {
+	#navbar-toggle,
+	#navbar-toggle[aria-expanded='true'] {
+		display: none;
+	}
+
+/* Wrapperen fra tidligere var sat til position: fixed således at den dækkede hele skærmen. Nu sætter vi den så til at være static, det sørger for at wrapperen bliver placeret efter home link hvilket medfører at den bliver usynlig. */
+#navbar-menu,
+#navbar-toggle[aria-expanded='true'] + #navbar-menu {
+	visibility: visible;
+	opacity: 1;
+	position: static;
+	display: block;
+	height: 100%;
+}
+
+	/* Når navbar statussen ændrer sig fra at have en hamburger menu til at være desktop view, så ændrer måden som navbarlinks ser ud, da de skifter fra at være i column form til at være rows således underside links skrives side om side, istedet for at stå på hver sin linje.*/
+.navbar-links,
+#navbar-toggle[aria-expanded='true'] + #navbar-menu .navbar-links {
+	margin: 0;
+	padding: 0;
+	box-shadow: none;
+	position: static;
+	flex-direction: row;
+	width: 100%;
+	height: 100%;
+}
+}
