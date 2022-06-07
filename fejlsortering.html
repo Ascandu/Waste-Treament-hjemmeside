@@ -8,7 +8,7 @@
 <title>Waste Treatment</title>
 </head>
 	<!-- Vi navngiver vores body element med en class som tilpasses alt efter hvilken side/underside vi er på i hjemmesiden. Dette gør vi således, at vi kan lave forskellige baggrunde til de forskellige sektioner skulle vi ønske det. -->
-<body class="index">
+<body class="fejlsortering">
 		<!-- Vi starter med at kalde header id'et for "navbar" det gør vi fordi, vores header skal indeholde vores navigationsmenu. Denne header kommer til at indeholde alt det HTML relaterede kode, som skal bruges til at lave vores navbar, dette er vores parent element. Tænk på det som den ramme der er rundt om alle elementerne indeni boksen. -->
 <header id="navbar">
 		<!-- Inde i det element placerer vi et <nav> element. Dette definerer, at der kommer til at være en række navigations elementer. (links knapper og den slags). Det primære mål med container er at tilpasse den indre boks størrelse (logo, hjemmeside navn og underside links) således at de tilpasser sig i forhold til venstre og højre margin. Dette bliver en "flex container" som kommer til at have tre children .home-link (anchor, som er rundt om hjemmeside logoet og navnet, til at linke til frontsiden), #navbar-toggle (hamburger menu knappen i højre side, som skifter til mobile view under 700px, og folder sig ud når vi kommer over 700px) og #navbar-menu (Dette er menuen med links til undersider, som er lagt i en wrapper, den som popper ud på skærmen når vi er under 700px og der er trykket på hamburger menuen.) -->
@@ -48,31 +48,7 @@ aria-expanded bliver sat til false, hvilket indikerer at popout menuen er lukket
 </div>
 </nav>
 </header>
-	<div id="top-bar"></div>
-	<div id="middle-bar">
-		<!-- Her oprettes der 2 divs til at indeholde ikonerne 4 i den øverste boks og 3 i den nederste boks -->
-		<div id="hexbox1">
-			<div id="hexwrapper1">
-				<img src="img/Hexagon design simple shape blå people.svg" class="svgicon" alt="#" onclick="displayPerson()" id="skiftpeople">
-				<img src="img/Landfill blå.svg" class="svgicon" alt="#" onclick="displayDeponi()" id="skiftdeponi">
-				<img src="img/Hexagon design simple shape blå skib.svg" class="svgicon" alt="#" onclick="displaySkib()" id="skiftskib">
-				<img src="img/Hexagon design simple shape blå metal.svg" class="svgicon" alt="#" onclick="displayMetaller()" id="skiftmetaller">
-			</div>
-		</div>
-		<div id="hexbox2">
-			<div id="hexwrapper2">
-				<img src="img/Hexagon design simple shape blå recycle.svg" class="svgicon" alt="#" onclick="displayGenbrug()" id="skiftgenbrug">
-				<img src="img/Hexagon design simple shape blå lastbil.svg" class="svgicon" alt="#" onclick="displayLastbil()" id="skiftlastbil">
-				<img src="img/Hexagon design simple shape blå forbrænding.svg" class="svgicon" alt="#" onclick="displayForbrænding()" id="skiftforbrænding">
-			</div>
-		</div>
-	</div>
-	<div id="bottom-bar">
-			<span style="color: white;"><p id="java-text">Det starter med dig.</p></span>			
-	</div>
-		<div id="footer">
-			
-	
+<div id="footer">
 	</div>
 	<!-- Der linkes til javascript filen -->
 <script src="java.js"></script>	

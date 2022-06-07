@@ -9,6 +9,19 @@ body.index {
 	background-color:#83ADB8;
 }
 
+body.firma {
+	background-color:#83ADB8;
+}
+body.partnere {
+	background-color:#83ADB8;
+}
+body.fejlsortering {
+	background-color:#83ADB8;
+}
+body.kontakt {
+	background-color:#83ADB8;
+}
+
 /* En CSS underklasse. Stort set det samme som at skrive html. hsl står for hue (nuance), saturation (mætning) og lightness (lethed), hvis man tilføjer en fjerde ville det være alpha også kendt som opacity (gennemsigtighed).
 -- repræsenterer unikke egenskaber, som indeholder en værdi, som kan anvendes i andre erklæringer. Såsom javascripts var() funktion. Det anvendes senere i vores javascript. 
 Variablerne bruges primært bare til at undgå copy paste af farver i CSS filen*/
@@ -121,12 +134,12 @@ Rammen rundt om knappen får hexkode farven #35A754 */
 
 /* Midlertidig indikator til at vise hvor firma logoet bliver placeret dette kan fjernes hvis det ønskes senere. Tegner bare en lille cirkel med en højde og bredde på 30px. */
 .navbar-logo {
-	background-color: black;
 	border-radius: 50%;
-	width: 30px;
-	height: 30px;
+	width: 50px;
+	height: 50px;
 	margin-right: 0.5em;
 }
+
 
 /* Her styles vores knap 
 Musemarkøren laves om til en pointer
@@ -228,6 +241,78 @@ rgba er red, green, blue og alpha. */
 	padding: 1em;
 }
 
+#top-bar {
+		background-color: #6DA8D0;
+		height: 30vh;
+		width: 100%;
+
+	}
+	#middle-bar {
+		background-color: #000000;
+		height: 40vh;
+		width: 100%;
+		
+	}
+/* Style til de 2 hexbokse */
+	#hexbox1  {
+		height: 50%;
+		width: fit-content;
+    min-width: 100%;
+		
+	}
+	#hexbox2  {
+		height: 50%;
+		width: 100%;
+		
+	}
+/*Her laver vi 2 div bokse til at style hvordan Iconerne skal stå og hvor meget de må fylde*/
+	#hexwrapper1 {
+		background-color: pink;
+		width: 100%;
+		height: 100%;
+	text-align: center;
+		
+
+	
+		
+		
+	}
+	#hexwrapper2 {
+		width: 100%;
+		height: 100%;
+		text-align: center;
+		
+	}
+/*Her styler vi selve ikonerne til at de må have en maks højde og bredde på 100 procent af selve boksen de er i samtidig med at vi giver dem lidt mellemrum*/
+
+	.svgicon{
+		max-height: 55%;
+		padding-left: 5px;
+		
+	}
+
+	#bottom-bar {
+		background-color: #265980;
+		height: 30vh;
+		width: 100%;
+}
+
+		/*Java tekst sektion */
+		#java-text {
+	 margin: auto;
+  width: 95%;
+			}
+		/*Footer sektion */
+	
+	#footer{
+		height: 5%;
+		width: 100%;
+		background-color: #000000;
+		position: fixed;
+		bottom: 0;
+		z-index: 10;
+}
+
 /* Vi ønsker ikke at hamburger menuen skal være til stede når vi ikke længere er i mobil tilstand. Så den skjules med display: none;*/
 @media screen and (min-width: 700px) {
 	#navbar-toggle,
@@ -256,4 +341,15 @@ rgba er red, green, blue og alpha. */
 	width: 100%;
 	height: 100%;
 }
+	.svgicon{
+		max-height: 80%;
+		padding-left: 10px;
+		
+	}
+	
+	/*Java tekst sektion */
+		#java-text {
+	 margin: auto;
+  width: 70%;
+			}
 }
