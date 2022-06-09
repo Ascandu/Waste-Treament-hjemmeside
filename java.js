@@ -37,7 +37,7 @@ function displayGenbrug() {
 }
 
 function displayDeponi() {
-  document.getElementById("java-text").innerHTML = 'I Danmark har vi et antal deponier.  Her er der affald, der er gravet ned under kontrollerede forhold, som over mange år, bare ligger og forurener i jorden, indtil der engang findes en løsning på problemet. Her ønsker vi hos Waste Treatment og Danish Bio Recycling at sætte gang i udviklingen, sådan at det nedgravede, kan blive gravet op og nyttegjort. Hvilket samtidig er til gavn for os alle sammen i form af genanvendte metaller, og der undgås en forurening, som gør skade i mange år i fremtiden.'
+  document.getElementById("java-text").innerHTML = 'I Danmark har vi et antal deponier.  Her er der affald, der er gravet ned under kontrollerede forhold, som over mange år, bare ligger og forurener i jorden, indtil der engang findes en løsning på problemet. Her ønsker vi hos Waste Treatment og Danish Bio Recycling at sætte gang i udviklingen, sådan at det nedgravede, kan blive gravet op og nyttegjort. Hvilket samtidig er til gavn for os alle sammen i form af genanvendte metaller.'
 	
 	document.getElementById("skiftpeople").src="img/Hexagon design simple shape blå people.svg";
 	document.getElementById("skiftgenbrug").src="img/Hexagon design simple shape blå recycle.svg";
@@ -85,7 +85,7 @@ function displayForbrænding() {
 }
 
 function displayMetaller() {
-  document.getElementById("java-text").innerHTML = 'Metallerne og asken sorteret fra i forskellige fraktioner på alt fra 0.3-10 millimeter. Metallerne sejles tilbage til Danmark og gennemgår en forædlingsproces, som kan rengøre metallerne fra 70% rent til 99.9% rent. Asken bruges til bygnings projekter, eller når der skal bygges veje eller landbrugsprojekter. Metallerne er vigtige, da især ting som kobber er en mangelvare og bliver efterspurgt i forbindelse med alle de nye elbiler og deres lade stationer.'
+  document.getElementById("java-text").innerHTML = 'Metallerne og asken sorteret fra i forskellige fraktioner på alt fra 0.3-10 millimeter. Metallerne sejles tilbage til Danmark og gennemgår en forædlingsproces, som kan rengøre metallerne fra 70% rent til 99.9% rent. Asken bruges til bygnings projekter, eller når der skal bygges veje og landbrugsprojekter. Metallerne er vigtige, da især ting som kobber, er en mangelvare og bliver efterspurgt i forbindelse med alle de nye elbiler og deres lade stationer.'
 	
 	document.getElementById("skiftpeople").src="img/Hexagon design simple shape blå people.svg";
 	document.getElementById("skiftgenbrug").src="img/Hexagon design simple shape blå recycle.svg";

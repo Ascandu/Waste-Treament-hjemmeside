@@ -48,7 +48,69 @@ aria-expanded bliver sat til false, hvilket indikerer at popout menuen er lukket
 </div>
 </nav>
 </header>
-<div id="footer">
+	<!-- Her laver vi en wrapper der omkring hele kontakt siden, deri laver vi 2 bokse der ligger ved siden af hinanden, og ligge de 2 forskellige dele ind i 
+	de respektive bokse, vi skriver teksten i den første boks, og i boks nummer 2 laver vi en kontakt formular hvor du skriver "fornavn", "efternavn" vælger dit land og så selve beskeden, derefter trykker man på send, som så åbner mail programmet op. -->
+		<div id="kontaktwrapper">
+			<div id="kontakttekst">
+				<p class="kontakt-p">
+					Navn: Vilhelm Bilde Pedersen
+					<br>
+					Mail: vbp@wt.dk
+					<br>
+					Tlf: 22274048
+					<br><br>
+					Navn: Jesper Bræmer Hansen
+					<br>
+					Mail: jbh@wt.dk
+					<br>
+					Tlf: 54555545
+					<br><br>
+					Navn: Christian Malthe-Brunn
+					<br>
+					Mail: cmb@wt.dk
+					<br>
+					Tlf: 20234414
+				</p>
+			</div>
+			<div id="kontaktform">
+			<p class="kontakt-p">Kontakt os her:</p><br>
+			<div class="kontaktboks">
+			  <form action="mailto:someone@examplae.com" method="post" enctype="text/plain">
+				<label for="fnavn">Fornavn</label>
+				  <br>
+				<input type="text" id="fname" name="fornavn" placeholder="Dit fornavn...">
+				  <br>
+				  
+				<label for="enavn">Efternavn</label>
+				  <br>
+				<input type="text" id="enavn" name="efternavn" placeholder="Dit efternavn...">
+				<br>
+				  
+				<label for="land">Land</label>
+				  <br>
+				<select id="land" name="land">
+				  <option value="denmark">Danmark</option>
+				  <option value="england">England</option>
+				  <option value="finland">Finland</option>
+				</select>
+				<br>
+				  
+				<label for="subject">Besked</label>
+				  <br>
+				  
+				<textarea id="besked" name="besked" placeholder="Skriv her.." style="height:200px"></textarea>
+				  <br>
+				  
+				<input type="submit" value="Send">
+			  </form>
+		</div>
+			</div>
+			
+	</div>
+<!-- Der laves en footer, og den bliver givet id'et "footer" til styling". -->
+		<div id="footer">
+			<!-- I footeren laves der en paragraph, den får en center position med hvid tekst styling -->
+				<center><span style="color: white;"><p>© Waste Treatment. Trademarks belong to their respective owners. All Rights Reserved.</p></span></center>
 	</div>
 	<!-- Der linkes til javascript filen -->
 <script src="java.js"></script>	

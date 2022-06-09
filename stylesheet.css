@@ -6,20 +6,22 @@
 
 /*Bruges til at lave indstillinger for de forskellige undersiders baggrund, i det her tilfælde bare baggrundsfarven via en hexkode*/
 body.index {
-	background-color:#83ADB8;
+	background-color:#265980;
 }
 
 body.firma {
-	background-color:#83ADB8;
+	background-color:#265980;
 }
 body.partnere {
-	background-color:#83ADB8;
+	background-color:#265980;
+	 margin: 0;
+    height: 100%;
 }
 body.fejlsortering {
-	background-color:#83ADB8;
+	background-color:#265980;
 }
 body.kontakt {
-	background-color:#83ADB8;
+	background-color:#265980;
 }
 
 /* En CSS underklasse. Stort set det samme som at skrive html. hsl står for hue (nuance), saturation (mætning) og lightness (lethed), hvis man tilføjer en fjerde ville det være alpha også kendt som opacity (gennemsigtighed).
@@ -89,10 +91,10 @@ Align tilpasser bare elementerne, således de er centreret i midten af container
 }
 
 /*Her styler vi anchor elementerne (de ting som linker til andre ting på siden aka undersiderne såsom fejlsortering i navbaren) 
-em betyder at element er relativt i forhold til x-højden af den nuværende font dvs den horisontale akse og her bliver det sat til at margin er 0.4em så stor af den nuværende størrelse af fontens størrelse aka den bliver mindre end den egentlige font størrelse.
+em betyder at element er relativt i forhold til x-højden af den nuværende font dvs den horisontale akse og her bliver det sat til at margin er 0.1em så stor af den nuværende størrelse af fontens størrelse aka den bliver mindre end den egentlige font størrelse.
 Fylder 100% af bredden der er tilgængelig*/
 .navbar-item {
-	margin: 0.4em;
+	margin: 0.1em;
 	width: 100%;
 }
 
@@ -240,7 +242,7 @@ rgba er red, green, blue og alpha. */
 #navbar-toggle[aria-expanded='true'] + #navbar-menu .navbarlinks {
 	padding: 1em;
 }
-
+/* Der laver tre inddelinger af forsiden top-bar, middle-bar og bottom bar disse deler tilsammen en viewheight på 100*/
 #top-bar {
 		background-color: #6DA8D0;
 		height: 30vh;
@@ -267,14 +269,9 @@ rgba er red, green, blue og alpha. */
 	}
 /*Her laver vi 2 div bokse til at style hvordan Iconerne skal stå og hvor meget de må fylde*/
 	#hexwrapper1 {
-		background-color: pink;
 		width: 100%;
 		height: 100%;
-	text-align: center;
-		
-
-	
-		
+	text-align: center;	
 		
 	}
 	#hexwrapper2 {
@@ -286,9 +283,9 @@ rgba er red, green, blue og alpha. */
 /*Her styler vi selve ikonerne til at de må have en maks højde og bredde på 100 procent af selve boksen de er i samtidig med at vi giver dem lidt mellemrum*/
 
 	.svgicon{
+		cursor: pointer;
 		max-height: 55%;
 		padding-left: 5px;
-		
 	}
 
 	#bottom-bar {
@@ -296,12 +293,60 @@ rgba er red, green, blue og alpha. */
 		height: 30vh;
 		width: 100%;
 }
-
+/* Til index siden er der lavet to tekst elementer, som er placeret i top-bar og bottom-bar, disse bliver styler her hvor margin auto justerer og de defineres med hvor meget af width de må fylde og teksten gives farven hvid. */
+#index-top-text{
+	 margin: auto;
+  width: 95%;
+	color: white;
+}
 		/*Java tekst sektion */
 		#java-text {
 	 margin: auto;
   width: 95%;
+			color: white;
 			}
+
+/* Her begynder koden til partner sektionen */
+
+/*Partner headeren styles 
+Rem står for root em og tilpasser fontsizes størrelse i forhold til root elementet.
+taxt-align får teksten til at være centreret, margin tilpasser automatisk og bredden er sat til at fylde 80% og tekst farven er sat til at være hvid. */
+.partner-navn {
+	font-size: 1.6rem;
+	text-align: center;
+			margin: auto;
+  width: 80%;
+	color: white; 
+	}
+
+/*partner text  */
+/*Rem står for root em og tilpasser fontsizes størrelse i forhold til root elementet. 
+*/
+
+		.partner {
+			font-size: 1.1rem;
+			text-align: left;
+			margin: auto;
+  width: 80%;
+color: white; 
+	
+
+				
+			}
+
+
+.person-billeder {
+	border: solid #3576A7 8px;
+	border-radius: 20%;
+
+}
+.partner-kasse {
+	text-align: center;
+	width: 100%;
+}
+			
+			
+			
 		/*Footer sektion */
 	
 	#footer{
@@ -311,6 +356,120 @@ rgba er red, green, blue og alpha. */
 		position: fixed;
 		bottom: 0;
 		z-index: 10;
+}
+
+/* kontakt side start */
+.kontakt-p
+{
+	color: white;
+	text-align: center;
+}
+.kontaktboks
+{
+	text-align: center;
+	color: white;
+}
+#kontaktwrapper
+{
+	padding-top: 20vh; /* vi giver "wrapperen" en padding på 20% viewheight så den altid kan ses uanset hvor langt man scaler ned*/
+	height: 100%; /*den får en højde på 100%*/
+	width: 100%; /*den får en bredde på 100%*/
+	background-color: #265980; /*baggrunds farve så det passer*/
+}
+#kontakttekst
+{
+	height: 100%;  /* første boks får en højde på 100%*/
+	width: 50%; /* første boks får en bredde på 50%*/
+	float: left; /* float:left giver vi begge bokse så de stå ved siden af hinanden*/
+}
+#kontaktform
+{
+	
+	height: 100%; /* anden boks får en højde på 100%*/
+	width: 50%; /* anden boks får en bredde på 50%*/
+	float: left; /* float:left giver vi begge bokse så de stå ved siden af hinanden*/
+}
+
+input[type=text], select, textarea {
+  width: 50%; /* Fuld bredde */
+  padding: 6px; /* Lidt padding */ 
+  border: 1px solid #ccc; /* Grå kanter */
+  border-radius: 4px; /* Runde kanter */
+  box-sizing: border-box; /* Dette gør det sikkert at padding og bredde bliver som det skal være */
+  margin-top: 6px; /* Tilføjer lidt top margin */
+  margin-bottom: 16px; /* tilføjer lidt bund margin */
+  resize: horizontal/* Brugeren får lov til at redigere størelsen horisontalt (Ikke vertikalt) */
+}
+
+/* Her styler vi knappen */
+input[type=submit] {
+  background-color: #04AA6D;
+  color: white;
+  padding: 12px 20px;
+  border: none;
+  border-radius: 4px;
+  cursor: pointer;
+}
+
+/* Her laver vi en hover effekt som gør knappen en anden farve grøn */
+input[type=submit]:hover {
+  background-color: #45a049;
+}
+/*kontakt side slut */
+
+/*fejlsorterings side start */
+
+
+/*Sætter logoerne og tekst op i kolloner på fejlsorteringssiden*/
+.column {
+	float: left;
+	width: 50%;
+	padding: 10px;
+}
+
+.row:after {
+	content: "";
+	display: table;
+	clear: both;
+	}
+/*fejlsorterings kode slut */
+
+/* Sætter logoet i midten af sidden på firmasiden */
+
+.startlogo {
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.firma-tekst {
+    padding-left: 10%;
+    padding-right: 10%;
+}
+
+
+/*Gør kollonerne responsive så de står under hinanden når du kommer under 700px */
+@media screen and (max-width: 700px) {
+	
+	.column {width:100%;}
+}
+
+
+
+
+/* sætter qr-kodens placering til midt på siden*/
+.QR {
+	display: block;
+	margin-left: auto;
+	margin-right: auto;
+}
+
+/*Sætter afstand på teksten så den ikke står helt op af kanten i mindre versioner*/
+
+.Fejlindhold{
+	
+	margin-left: 10%;
+	margin-right: 10%;
 }
 
 /* Vi ønsker ikke at hamburger menuen skal være til stede når vi ikke længere er i mobil tilstand. Så den skjules med display: none;*/
@@ -342,14 +501,53 @@ rgba er red, green, blue og alpha. */
 	height: 100%;
 }
 	.svgicon{
+		cursor: pointer;
 		max-height: 80%;
 		padding-left: 10px;
 		
 	}
 	
+	#index-top-text{
+	 margin: auto;
+  width: 70%;
+	color: white;
+}
 	/*Java tekst sektion */
 		#java-text {
 	 margin: auto;
   width: 70%;
+			color: white;
 			}
+	
+
+
+.Fejlindhold{
+	
+	margin-left: 10%;
+	margin-right: 10%;
+}
+}
+/* fejl sortering slut */
+
+	@media screen and (max-width: 400px){
+		
+			.svgicon{
+		cursor: pointer;
+		max-height: 45%;
+		padding-left: 5px;
+		}
+		#index-top-text{
+	 margin: auto;
+  width: 95%;
+	color: white;
+			font-size: 0.9rem;
+		
+}
+			#java-text {
+	 margin: auto;
+  width: 95%;
+			color: white;
+				font-size: 0.7rem;
+	
+	}
 }
