@@ -4,12 +4,12 @@ const navbarToggle = navbar.querySelector('#navbar-toggle');
 //Der laves en variabel som kaldes isNavbarExpanded og denne checker i navbarToggle fra CSS om aria-expanded er true (false ville være når hamburger menuen er lukket) //
 let isNavbarExpanded = navbarToggle.getAttribute('aria-expanded') === 'true';
 
-
+// Dette er til toggle den menu som dukker op når hamburger menuen er udviddet. Dvs den slår den til og fra (den firkantede boks som dukker op med underside links i mobile view) //
 const toggleNavbarVisibility = () => {
 	isNavbarExpanded = !isNavbarExpanded;
 	navbarToggle.setAttribute('aria-expanded', isNavbarExpanded);
 };
-// Når navToggle trykkes på (igen hamburger menuen) så bliver navigationsmenuen synlig. //
+// Når navToggle trykkes på (igen hamburger menuen) så bliver navigationsmenuen synlig.) //
 navbarToggle.addEventListener('click', toggleNavbarVisibility);
 
 function displayPerson() {
